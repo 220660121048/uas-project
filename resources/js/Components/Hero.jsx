@@ -1,6 +1,6 @@
-import { Container } from "@/components/Container";
 import heroImg from "../../../public/images/unsap-removebg.png";
-import { Link } from '@inertiajs/react';
+import { Link } from "@inertiajs/react";
+import { Container } from "./Container";
 
 export const Hero = () => {
     return (
