@@ -2,19 +2,16 @@
     "version": 2,
     "framework": null,
     "functions": {
-        "api/index.php": { "runtime": "vercel-php@0.6.0" }
-    },
-    "builds": [
-        {
-            "src": "api/index.php",
-            "use": "@vercel/php"
-        },
-        {
-            "src": "public/**",
-            "use": "@vercel/static"
+        "api/index.php": {
+            "runtime": "vercel-php@0.6.1"
         }
-    ],
+    },
+
     "routes": [
+        {
+            "src": "/img/(.*)",
+            "dest": "/public/img/"
+        },
         {
             "src": "/(.*)",
             "dest": "/api/index.php"
@@ -23,7 +20,7 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
-        "APP_URL": "https://your.url.from.vercel.app",
+        "APP_URL": "https://ridwan-hanafi-uas.vercel.app",
         "APP_KEY": "base64:TtIWVxF+LFwP3WfPUzog6vC4x/3jwqemLnl0yN7ld50=",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
@@ -36,5 +33,6 @@
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie"
-    }
+    },
+    "outputDirectory": "public"
 }

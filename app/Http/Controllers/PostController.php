@@ -86,12 +86,9 @@ class PostController extends Controller
 
         ])->validate();
 
-   
+
 
         Post::create($request->all());
-
-    
-
         return redirect('/');
 
     }
