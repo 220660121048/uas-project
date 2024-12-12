@@ -24,8 +24,21 @@ class AppServiceProvider extends ServiceProvider
     {
         // Vite::prefetch(concurrency: 3);
         if (env('VERCEL_ENV')) {
+            // Konfigurasi untuk view cache
             View::addLocation('/tmp');
             config(['view.compiled' => '/tmp']);
+
+            // Konfigurasi untuk SQLite di /tmp
+            $databasePath = base_path('database/database.sqlite');
+            $tmpDatabasePath = '/tmp/database.sqlite';
+
+            // Jika file SQLite ada di base_path, pindahkan ke /tmp
+            if (file_exists($databasePath) && !file_exists($tmpDatabasePath)) {
+                copy($databasePath, $tmpDatabasePath);
+            }
+
+            // Pastikan Laravel menggunakan database dari /tmp
+            config(['database.connections.sqlite.database' => $tmpDatabasePath]);
         }
     }
 }
