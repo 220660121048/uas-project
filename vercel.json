@@ -16,7 +16,7 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
-        "APP_URL": "https://ridwan-hanafi-uas.vercel.app",
+        "APP_URL": "",
         "APP_KEY": "base64:TtIWVxF+LFwP3WfPUzog6vC4x/3jwqemLnl0yN7ld50=",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
@@ -29,5 +29,6 @@
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie"
-    }
+    },
+    "outputDirectory": "public"
 }
